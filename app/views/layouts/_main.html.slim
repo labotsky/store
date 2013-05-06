@@ -1,0 +1,45 @@
+/! Main
+#main
+  .cl  
+  /! Content
+  #content
+    = render 'layouts/slider'
+    /! Products
+    .products
+      .cl  
+      = yield
+    = yield :user
+    /! End Products
+  /! End Content
+  /! Sidebar
+  #sidebar
+    
+    /! Menu
+    .box.categories
+      h2
+        =t('menuleft.menu')
+        span
+      .box-content
+        ul
+          li= link_to t('nav.home'), root_path
+          li= link_to t('nav.support'), support_path
+          - if user_signed_in?
+            li= link_to t('nav.myaccount'), edit_user_registration_path
+          li= link_to t('nav.store'), store_path
+          li= link_to t('nav.contact'), contact_path
+    /! End Menu
+    /! Categories
+    .box.categories
+      h2
+        =t('menuleft.category')
+        span
+      .box-content
+        ul
+          - top_categories.each do |category|
+            li= link_to category.title, category
+    = hidden_div_if cart_items.empty?, id: 'cart' do
+      = render 'layouts/cart'
+    /! End Categories
+  /! End Sidebar
+  .cl  
+/! End Main

@@ -1,0 +1,20 @@
+<% if current_page?(root_path) %>
+<!-- Content Slider -->
+			<div id="slider" class="box">
+				<div id="slider-holder">
+					<ul>
+					    <li><%= link_to image_tag ('slide1.jpeg') %></li>
+					   	<li><%= link_to image_tag ('slide2.jpeg') %></li>
+					    <li><%= link_to image_tag ('slide3.jpeg') %></li>
+					    <li><%= link_to image_tag ('slide4.jpeg') %></li>
+					</ul>
+				</div>
+				<div id="slider-nav">
+					<a href="#" class="active">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+				</div>
+			</div>
+<!-- End Content Slider -->
+<% end %>

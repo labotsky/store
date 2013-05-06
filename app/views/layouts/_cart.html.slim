@@ -1,0 +1,21 @@
+/! Cart
+a.cart-link href="#"
+ | Your cart
+.cl  
+span
+  | Articles:
+  strong= cart_items.count
+- cart_items.each do |item|
+  - if item == @current_item
+    p#current_item
+      = item.quantity
+      |  × #{item.product.title} - #{number_to_currency(item.product.price*item.quantity)} 
+  - else
+    p
+      = item.quantity
+      |  × #{item.product.title} - #{number_to_currency(item.product.price*item.quantity)}
+span
+  | Cost:
+  strong= number_to_currency(current_cart.total_price)
+= button_to t('product.empty'), current_cart, method: :delete, confirm: 'Are you sure?', remote:true, class: "btn btn-small"
+/! End Cart

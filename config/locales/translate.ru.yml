@@ -1,0 +1,16 @@
+ru:
+  activerecord:
+    models:
+      category: "Категории"
+      product: "Продукты"
+    attributes:
+      category:
+        title: "Название"
+        desciption: "Описание"
+        created_at: "Создано"
+        updated_at: "Обнавлено"
+      product:
+        title: "Название"
+        description: "Описание"        
+        created_at: "Создано"
+        updated_at: "Обнавлено"

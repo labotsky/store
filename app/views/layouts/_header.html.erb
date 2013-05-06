@@ -1,0 +1,28 @@
+<!-- Header -->	
+	<div id="header">
+		<h1 id="logo"><a href="#">shoparound</a></h1>
+		<div id="lang">
+			<%= link_to "ru", locale: "ru"%>|<%= link_to "en", locale: "en"%>
+    	</div>
+		<!-- Navigation -->
+		<div id="navigation">
+			<ul>
+			    <li><%= link_to t('nav.home'), root_path, class: "#{'active' if current_page?(root_path)}" %></li>
+			    <li><%= link_to t('nav.support'), support_path, class: "#{'active' if current_page?(support_path)}" %></li>			    
+			    <li><%= link_to t('nav.store'), store_path, class: "#{'active' if current_page?(store_path)}" %></li>
+			    <li><%= link_to t('nav.contact'), contact_path, class: "#{'active' if current_page?(contact_path)}" %></li>
+
+			<% if user_signed_in? %>  
+			    <li><%= link_to t('devise.edit'), edit_user_registration_path, class: "#{'active' if current_page?(edit_user_registration_path)}" %></li>
+
+			    <li><%= link_to t('devise.logout'), destroy_user_session_path, method: :delete, class: "#{'active' if current_page?(destroy_user_session_path)}" %></li>
+			<% else %>
+				 <li><%= link_to t('devise.signup'), new_user_registration_path, class: "#{'active' if current_page?(new_user_registration_path)}" %></li>
+
+			     <li><%= link_to t('devise.login'), new_user_session_path, class: "#{'active' if current_page?(new_user_session_path)}" %></li>
+			<% end %>    
+			</ul>
+		</div>
+		<!-- End Navigation -->
+	</div>
+	<!-- End Header -->
