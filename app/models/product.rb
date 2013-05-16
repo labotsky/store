@@ -4,4 +4,5 @@ class Product < ActiveRecord::Base
   has_many :line_items
   translates :description, :title
   mount_uploader :image, ImageUploader
+  default_scope order(:id)
 end

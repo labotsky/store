@@ -9,7 +9,7 @@ development:
   database: store2_development
   pool: 5
   username: sergey
-  password:
+  password: 12345
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -19,11 +19,11 @@ test:
   database: store2_test
   pool: 5
   username: sergey
-  password:
+  password: 12345
 
 production:
   adapter: postgresql
   database: store2_production
   pool: 5
   username: sergey
-  password:
+  password: 12345

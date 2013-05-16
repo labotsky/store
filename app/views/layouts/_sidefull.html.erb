@@ -6,7 +6,7 @@
 		<div class="more-products">
 			<div class="more-products-holder">
 				<ul>
-					<% @products.each do |product| %>
+					<% all_products.each do |product| %>
 					   	<li>
 					   		<%= link_to product do %>
 	            				<%= image_tag product.image_url(:small) %>

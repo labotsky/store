@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   	protect_from_forgery
 
   	before_filter :set_locale  	  	
-	helper_method :top_categories, :cart_items, :current_cart
+	helper_method :top_categories, :cart_items, :current_cart, :all_products
 
 	def set_locale
 		 I18n.locale = params[:locale] || I18n.default_locale
@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
 
 	def top_categories
 	    Category.all
+	end
+
+	def all_products
+		@products = Product.limit(12)
 	end
 
 	def cart_items
