@@ -15,7 +15,8 @@ gem 'rails-translate-routes'
 gem 'globalize3'
 gem "activeadmin"
 gem 'activeadmin-translate'
-
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development, :test do 
   gem 'rspec-rails'

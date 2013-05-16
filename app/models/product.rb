@@ -1,8 +1,7 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :price, :title, :category_id, :translations
+  attr_accessible :description, :price, :title, :category_id, :translations, :image
   belongs_to :category
   has_many :line_items
   translates :description, :title
-  
-  accepts_nested_attributes_for :translations
+  mount_uploader :image, ImageUploader
 end

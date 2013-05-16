@@ -1,20 +1,21 @@
 Store::Application.routes.draw do
   ActiveAdmin.routes(self)
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-
-  scope ":locale", locale: /en|ru/ do
-    devise_for :users
-    resources :line_items
-    resources :carts
+scope ":locale", locale: /en|ru/ do
     root to: 'static_pages#home'
+    devise_for :users 
+    
+    resources :line_items
+    resources :carts    
     match '/support', to: 'static_pages#support'
     match '/account', to: 'static_pages#account'
     match '/store', to: 'static_pages#store'
     match '/contact', to: 'static_pages#contact'
     resources :products
-    resources :categories 
-  end  
+    resources :categories
+    
+  end
+    devise_for :admin_users, ActiveAdmin::Devise.config  
     match '*path', to: redirect("/#{I18n.default_locale}/%{path}")
     match '', to: redirect("/#{I18n.default_locale}")
 
